@@ -14,10 +14,10 @@
             <RouterLink class="nav-link" to="/">Home</RouterLink>
         </li>
         <li class="nav-item">
-            <RouterLink class="nav-link" to="/about">Results</RouterLink>
+            <RouterLink class="nav-link" to="/results">Results</RouterLink>
         </li>
         <li class="nav-item">
-            <RouterLink class="nav-link" to="/about">Upload Image</RouterLink>
+            <RouterLink class="nav-link" to="/upload">Upload Image</RouterLink>
         </li>
       </ul>
     </div>
