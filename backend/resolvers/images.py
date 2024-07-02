@@ -5,6 +5,7 @@ from sqlalchemy.orm import sessionmaker
 
 from database import engine
 from models import Upload
+from config import URL, STATIC
 
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -17,5 +18,6 @@ def resolve_randomImages(_, info):
     uploads = session.query(Upload).all()
 
     value = random.sample(uploads, 2)
-    images = [val.image for val in value]
+    images = [f'{URL}/{STATIC}/{val.image}' for val in value]
+    
     return images

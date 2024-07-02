@@ -1,4 +1,12 @@
 <script setup>
+import { useQuery } from '@vue/apollo-composable'
+import { gql } from 'graphql-tag'
+
+const { result } = useQuery(gql`
+      query randomImages {
+        randomImages
+      }
+    `);
 </script>
 
 <template>
@@ -12,12 +20,14 @@
       <div class="col-md-6">
         <div class="card mt-4">
           <div class="card-body">
+            <img :src="result.randomImages[0]" class="img-fluid" />
           </div>
          </div>
       </div>
       <div class="col-md-6">
         <div class="card mt-4">
           <div class="card-body">
+            <img :src="result.randomImages[1]" class="img-fluid" />
           </div>
         </div>
       </div>

@@ -11,8 +11,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@apollo/client": "^3.10.8",
     "@popperjs/core": "^2.11.8",
+    "@vue/apollo-composable": "^4.0.2",
     "bootstrap": "^5.3.3",
+    "graphql": "^16.9.0",
+    "graphql-tag": "^2.12.6",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
