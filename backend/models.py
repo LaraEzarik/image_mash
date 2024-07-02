@@ -7,3 +7,6 @@ class Upload(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     image = Column(String, index=True)
+    upvotes = Column(Integer, default=0)
+    downvotes = Column(Integer, default=0)
+    elo = Column(Integer, default=1200)
