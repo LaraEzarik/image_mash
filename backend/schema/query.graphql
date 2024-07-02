@@ -1,6 +1,6 @@
 scalar Upload
 type Query {
-    hello: String!
+    randomImages: [String!]
 }
 
 type Mutation {
