@@ -1,7 +1,9 @@
 from ariadne import MutationType
 import aiofiles
+from sqlalchemy.orm import Session
 
 from models import Upload
+from database import engine
 
 upload_mutation = MutationType()
 
@@ -11,5 +13,8 @@ async def resolve_upload_file(_, info, image):
     async with aiofiles.open(destination_path, 'wb') as out_file:
         content = await image.read()  # async read
         await out_file.write(content)
-    Upload.create(image=image.filename)
+    upload = Upload(image=image.filename)
+    with Session(engine) as session:
+        session.add(upload)
+        session.commit()
     return True
