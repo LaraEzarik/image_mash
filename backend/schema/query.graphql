@@ -1,8 +1,19 @@
 scalar Upload
+
 type Query {
-    randomImages: [String!]
+    compareImages: [randomImage!]
+    getAllImages: [randomImage!]
+}
+
+type randomImage {
+    id: Int!
+    image: String!
+    upvotes: Int!
+    downvotes: Int!
+    elo: Int!
 }
 
 type Mutation {
     upload(image: Upload!): Boolean!
+    eloVote(img1: Int!, img2: Int!): Boolean!
 }

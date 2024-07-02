@@ -12,12 +12,18 @@ session = Session()
 
 query = QueryType()
 
-@query.field("randomImages")
-def resolve_randomImages(_, info):
+@query.field("compareImages")
+def resolve_compareImages(_, info):
     # Query for all users
     uploads = session.query(Upload).all()
 
-    value = random.sample(uploads, 2)
-    images = [f'{URL}/{STATIC}/{val.image}' for val in value]
+    images = []
+    sample = random.sample(uploads, 2)
+    for value in sample:
+        images.append({'id': value.id,
+                   'image': f'{URL}/{STATIC}/{value.image}',
+                   'upvotes': value.upvotes,
+                   'downvotes': value.downvotes,
+                   'elo': value.elo})
     
     return images
