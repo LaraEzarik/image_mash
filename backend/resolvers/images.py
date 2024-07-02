@@ -21,9 +21,9 @@ def resolve_compareImages(_, info):
     sample = random.sample(uploads, 2)
     for value in sample:
         images.append({'id': value.id,
-                   'image': f'{URL}/{STATIC}/{value.image}',
-                   'upvotes': value.upvotes,
-                   'downvotes': value.downvotes,
-                   'elo': value.elo})
+                       'image': f'{URL}/{STATIC}/{value.image}',
+                       'upvotes': value.upvotes,
+                       'downvotes': value.downvotes,
+                       'elo': value.elo})
     
     return images
