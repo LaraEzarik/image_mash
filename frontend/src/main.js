@@ -9,19 +9,18 @@ import App from './App.vue'
 import router from './router'
 
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
+import createUploadLink from 'apollo-upload-client/createUploadLink.mjs'
 
-// HTTP connection to the API
-const httpLink = createHttpLink({
-  // You should use an absolute URL here
-  uri: 'http://localhost:3000/graphql',
-})
+const uploadLink = createUploadLink({
+    uri: 'http://localhost:3000/graphql', // Replace with your GraphQL endpoint
+  });
 
 // Cache implementation
 const cache = new InMemoryCache()
 
 // Create the apollo client
 const apolloClient = new ApolloClient({
-  link: httpLink,
+  link: uploadLink,
   cache,
 })
 
