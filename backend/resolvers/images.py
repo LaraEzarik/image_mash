@@ -27,3 +27,15 @@ def resolve_compareImages(_, info):
                        'elo': value.elo})
     
     return images
+
+@query.field('getAllImages')
+def resolve_getAllImages(_, info):
+    uploads = session.query(Upload).all()
+    images = []
+    for value in uploads:
+        images.append({'id': value.id,
+                       'image': f'{URL}/{STATIC}/{value.image}',
+                       'upvotes': value.upvotes,
+                       'downvotes': value.downvotes,
+                       'elo': value.elo})
+    return images
