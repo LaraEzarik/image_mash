@@ -4,15 +4,10 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 from resolvers.upload import upload_mutation
+from resolvers.images import query
 
 
 typedefs = load_schema_from_path('schema/')
-
-query = QueryType()
-
-@query.field("hello")
-def resolve_hello(_, info):
-    return "Hello, world!"
 
 schema = make_executable_schema(typedefs, query, upload_mutation, upload_scalar)
 
