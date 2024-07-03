@@ -24,6 +24,11 @@ const vote = (upvote, downvote) => {
   mutate({ upvote, downvote });
   refetch();
 }
+
+function calculateEloWinPercentage(R_A, R_B) {
+  const E_A = 1 / (1 + Math.pow(10, (R_B - R_A) / 400));
+  return Math.round((E_A * 100), 2); // Convert to percentage
+}
 </script>
 
 <template>
@@ -50,7 +55,7 @@ const vote = (upvote, downvote) => {
                 <p>Downvotes: {{ result.compareImages[0].downvotes }}</p>
               </div>
               <div class="col-md-4">
-                <p>Elo: {{ result.compareImages[0].elo }}</p>
+                <p>Win Chance: {{ calculateEloWinPercentage(result.compareImages[0].elo, result.compareImages[1].elo) }}%</p>
               </div>
             </div>
           </div>
@@ -72,7 +77,7 @@ const vote = (upvote, downvote) => {
                 <p>Downvotes: {{ result.compareImages[1].downvotes }}</p>
               </div>
               <div class="col-md-4">
-                <p>Elo: {{ result.compareImages[1].elo }}</p>
+                <p>Win Chance: {{ calculateEloWinPercentage(result.compareImages[1].elo, result.compareImages[0].elo) }}%</p>
               </div>
             </div>
           </div>

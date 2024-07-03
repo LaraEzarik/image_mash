@@ -10,7 +10,7 @@ type randomImage {
     image: String!
     upvotes: Int!
     downvotes: Int!
-    elo: Int!
+    elo: Float!
 }
 
 type Mutation {
