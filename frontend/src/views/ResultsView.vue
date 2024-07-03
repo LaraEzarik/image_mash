@@ -10,7 +10,7 @@
                 <div class="card shadow-sm">
                     <img :src="image.image" class="img-fluid" />
                     <div class="card-body">
-                        <p class="card-text">ELO:{{ image.elo }}</p>
+                        <p class="card-text">ELO:{{ Math.round(image.elo) }}</p>
                     </div>
                 </div>
             </div>
