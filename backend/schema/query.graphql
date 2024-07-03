@@ -15,5 +15,5 @@ type randomImage {
 
 type Mutation {
     upload(image: Upload!): Boolean!
-    eloVote(img1: Int!, img2: Int!): Boolean!
+    eloVote(upvote: Int!, downvote: Int!): Boolean!
 }

@@ -5,12 +5,13 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 from resolvers.upload import upload_mutation
+from resolvers.vote import vote_mutation
 from resolvers.images import query
 
 
 typedefs = load_schema_from_path('schema/')
 
-schema = make_executable_schema(typedefs, query, upload_mutation, upload_scalar)
+schema = make_executable_schema(typedefs, query, upload_mutation, vote_mutation, upload_scalar)
 
 app = FastAPI()
 
